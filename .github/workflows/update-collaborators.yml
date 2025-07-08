@@ -3,7 +3,7 @@ name: 🧑‍🤝‍🧑 Update Collaborators in README
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *'  # runs daily at midnight UTC
+    - cron: '0 0 * * *'  # Daily at midnight UTC
 
 jobs:
   update-collaborators:
@@ -14,15 +14,15 @@ jobs:
       - name: Install jq
         run: sudo apt-get install -y jq
 
-      - name: Get public repos
+      - name: Get all public repos
         run: |
           curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            https://api.github.com/users/heubert-69/repos?per_page=100 > repos.json
+            https://api.github.com/users/heubert-69/repos?per_page=100 \
+            > repos.json
 
-      - name: Get all collaborators
+      - name: Extract collaborators
         run: |
-          collabs_file=collaborators.md
-          echo '<table><tr>' > $collabs_file
+          echo '<table><tr>' > collaborators.md
 
           for repo in $(jq -r '.[].name' repos.json); do
             echo "🔍 Scanning $repo"
@@ -32,23 +32,23 @@ jobs:
           done | sort -u | grep -v '^heubert-69$' > raw_collabs.txt
 
           while read user; do
-            echo "<td align=\"center\"><a href=\"https://github.com/$user\"><img src=\"https://avatars.githubusercontent.com/$user\" width=\"70px\" /><br /><sub><b>$user</b></sub></a></td>" >> $collabs_file
+            echo "<td align=\"center\"><a href=\"https://github.com/$user\"><img src=\"https://avatars.githubusercontent.com/$user\" width=\"70px\" /><br /><sub><b>$user</b></sub></a></td>" >> collaborators.md
           done < raw_collabs.txt
 
-          echo '</tr></table>' >> $collabs_file
+          echo '</tr></table>' >> collaborators.md
 
-      - name: Inject into README.md
+      - name: Inject collaborators into README.md
         run: |
           awk '/<!-- collaborators-start -->/{print; system("cat collaborators.md"); skip=1; next}
                /<!-- collaborators-end -->/{skip=0; print; next}
                !skip' README.md > README.tmp && mv README.tmp README.md
 
-      - name: Manual Commit and Push with PAT (Final Fix)
-        env:
-          TOKEN: ${{ secrets.PAT_TOKEN }}
+      - name: Commit and Push changes
         run: |
-          git config --global user.name "heubert-69"
-          git config --global user.email "heubert69@users.noreply.github.com"
+          git config --global user.name "github-actions"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add README.md
           git commit -m "🔄 Updated collaborators list" || echo "No changes to commit"
-          git push https://heubert-69:$TOKEN@github.com/heubert-69/heubert-69.git HEAD:main
+          git push origin HEAD:main
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
