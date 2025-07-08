@@ -1,55 +1,47 @@
-```yaml
-name: Update Collaborators
+name: 🧑‍🤝‍🧑 Update Collaborators in README
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # daily
+    - cron: '0 0 * * *'  # runs daily
   workflow_dispatch:
 
 jobs:
-  generate-collaborators:
+  update-collaborators:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
-      - uses: trilom/file-changes-action@v1
-        id: collabs
+      - name: Get public repos
+        run: |
+          curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            https://api.github.com/users/heubert-69/repos?per_page=100 > repos.json
 
-      - name: Fetch all collaborators
-        uses: octokit/request-action@v2.x
-        id: get_collabs
+      - name: Get all collaborators
+        run: |
+          collabs_file=collaborators.md
+          echo '<table><tr>' > $collabs_file
+
+          for repo in $(jq -r '.[].name' repos.json); do
+            echo "🔍 Scanning $repo"
+            curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              https://api.github.com/repos/heubert-69/$repo/collaborators?per_page=100 \
+              | jq -r '.[].login'
+          done | sort -u > raw_collabs.txt
+
+          while read user; do
+            echo "<td align=\"center\"><a href=\"https://github.com/$user\"><img src=\"https://avatars.githubusercontent.com/$user\" width=\"70px\" /><br /><sub><b>$user</b></sub></a></td>" >> $collabs_file
+          done < raw_collabs.txt
+
+          echo '</tr></table>' >> $collabs_file
+
+      - name: Inject into README
+        run: |
+          awk '/<!-- collaborators-start -->/{print; system("cat collaborators.md"); next} 1' README.md > README.tmp
+          mv README.tmp README.md
+
+      - name: Commit and Push
+        uses: EndBug/add-and-commit@v9
         with:
-          route: GET /users/${{ github.actor }}/repos
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Extract collaborator logins
-        run: |
-          echo "COLLABS<<EOF" >> $GITHUB_ENV
-          jq -r '.[].name' <<< "${{ steps.get_collabs.outputs.data }}" | while read repo; do
-            curl -s \
-            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            "https://api.github.com/repos/${GITHUB_REPOSITORY##*/}/$repo/collaborators" \
-            | jq -r '.[].login'
-          done | sort -u
-          echo "EOF" >> $GITHUB_ENV
-
-      - name: Generate collaborators section
-        run: |
-          printf '<table><tr>\n' > collabs.md
-          for user in $COLLABS; do
-            echo "<td align=\"center\"><a href=\"https://github.com/$user\"><img src=\"https://avatars.githubusercontent.com/$user\" width=\"60\" alt=\"$user\"/><br /><sub><b>$user</b></sub></a></td>" >> collabs.md
-          done
-          printf '</tr></table>\n' >> collabs.md
-
-      - name: Update README
-        run: |
-          awk '/<!-- collaborators-start -->/{print; system("cat collabs.md"); next} /<!-- collaborators-end -->/ {print; exit}1' README.md > README.new.md
-          mv README.new.md README.md
-
-      - uses: EndBug/add-and-commit@v9
-        with:
-          author_name: 'github-actions[bot]'
-          author_email: '41898282+github-actions[bot]@users.noreply.github.com'
-          message: 'chore: update collaborators list'
-```
+          author_name: github-actions
+          author_email: github-actions@github.com
+          message: '🔄 Updated collaborators list'
