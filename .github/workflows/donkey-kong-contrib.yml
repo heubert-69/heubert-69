@@ -1,28 +1,28 @@
-name: 🦍 Generate Donkey Kong GitHub Contributions
+name: 🦍 Deploy Donkey Kong GitHub Animation
 
 on:
+  workflow_dispatch:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: '0 0 * * *'  # Run daily at midnight UTC
 
 jobs:
-  generate-grid:
+  deploy-donkeykong:
     runs-on: ubuntu-latest
-    name: Generate animated grid
     steps:
-      - name: Checkout
+      - name: Checkout source
         uses: actions/checkout@v3
 
-      - name: Generate SVG
-        uses: Platane/snk@v3
-        with:
-          github_user_name: heubert-69
-          outputs: |
-            ./github-contribution-grid-snake.svg
+      - name: Prepare animation (optional build step)
+        run: |
+          echo "✅ Animation asset assumed to be ready: github-contribution-donkeykong.svg"
+          # If needed: generate or copy your SVG to the root here
 
-      - name: Push to output branch
+      - name: Deploy to GitHub Pages (output branch)
         uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output
-          build_dir: .
+          build_dir: .  # assumes SVG is in root of repo
+          keep_history: false
+          allow_empty_commit: true
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
