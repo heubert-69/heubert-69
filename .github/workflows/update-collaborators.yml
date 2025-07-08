@@ -52,4 +52,3 @@ jobs:
           git add README.md
           git commit -m "🔄 Updated collaborators list" || echo "No changes to commit"
           git push https://heubert-69:$TOKEN@github.com/heubert-69/heubert-69.git HEAD:main
-
