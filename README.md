@@ -3,12 +3,16 @@
 
 ---
 
-### 🔥 GitHub Stats (Live)
+### 🔥 GitHub Stats 
 
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=heubert-69&show_icons=true&theme=radical&count_private=true" alt="Jorge's GitHub stats" />
   <br />
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=heubert-69&layout=compact&theme=radical" alt="Top Languages" />
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/heubert-69/heubert-69/output/github-contribution-grid-snake.svg" alt="donkey-kong-activity" />
 </p>
 
 ---
@@ -22,7 +26,7 @@
 
 ---
 
-### 🤝 Collaborators (Live)
+### 🤝 People I've Worked with :D 
 
 <!-- collaborators-start -->
 <!-- collaborators-end -->
