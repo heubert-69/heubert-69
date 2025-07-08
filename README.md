@@ -16,9 +16,9 @@
 ### 📌 Featured Projects
 
 [![Option Valuation App](https://github-readme-stats.vercel.app/api/pin/?username=heubert-69&repo=option-valuation&theme=radical)](https://github.com/heubert-69/option-valuation)
-[![PH Disaster ML](https://github-readme-stats.vercel.app/api/pin/?username=heubert-69&repo=ph-disaster-ml&theme=radical)](https://github.com/heubert-69/ph-disaster-ml)
+[![Merger and Acquisitions Predictor](https://github-readme-stats.vercel.app/api/pin/?username=heubert-69&repo=ph-disaster-ml&theme=radical)]()
 [![Finswarm](https://github-readme-stats.vercel.app/api/pin/?username=heubert-69&repo=finswarm&theme=radical)](https://github.com/heubert-69/finswarm)
-[![RegIntelAI](https://github-readme-stats.vercel.app/api/pin/?username=heubert-69&repo=regintelai&theme=radical)](https://github.com/heubert-69/regintelai)
+[![RegIntelAI](https://github-readme-stats.vercel.app/api/pin/?username=heubert-69&repo=regintelai&theme=radical)](https://github.com/heubert-69/RegIntel-AI)
 
 ---
 
