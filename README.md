@@ -10,11 +10,10 @@
   <br />
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=heubert-69&layout=compact&theme=radical" alt="Top Languages" />
 </p>
-
+<h2 align="center">Contributions</h2>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/heubert-69/heubert-69/output/github-contribution-grid-snake.svg" alt="donkey-kong-activity" />
+  <img src="https://heubert-69.github.io/heubert-69/github-contribution-donkeykong.svg" alt="Donkey Kong Contribution Animation" />
 </p>
-
 ---
 
 ### 📌 Featured Projects
