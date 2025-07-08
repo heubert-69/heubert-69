@@ -43,11 +43,13 @@ jobs:
                /<!-- collaborators-end -->/{skip=0; print; next}
                !skip' README.md > README.tmp && mv README.tmp README.md
 
-      - name: Manual Commit and Push with PAT
+      - name: Manual Commit and Push with PAT (Final Fix)
+        env:
+          TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
           git config --global user.name "heubert-69"
           git config --global user.email "heubert69@users.noreply.github.com"
           git add README.md
           git commit -m "🔄 Updated collaborators list" || echo "No changes to commit"
-          git remote set-url origin https://heubert-69:${{ secrets.PAT_TOKEN }}@github.com/heubert-69/heubert-69.git
-          git push origin main
+          git push https://heubert-69:$TOKEN@github.com/heubert-69/heubert-69.git HEAD:main
+
