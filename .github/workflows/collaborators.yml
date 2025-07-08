@@ -1,0 +1,54 @@
+
+name: Update Collaborators
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # daily
+  workflow_dispatch:
+
+jobs:
+  generate-collaborators:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: trilom/file-changes-action@v1
+        id: collabs
+
+      - name: Fetch all collaborators
+        uses: octokit/request-action@v2.x
+        id: get_collabs
+        with:
+          route: GET /users/${{ github.actor }}/repos
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract collaborator logins
+        run: |
+          echo "COLLABS<<EOF" >> $GITHUB_ENV
+          jq -r '.[].name' <<< "${{ steps.get_collabs.outputs.data }}" | while read repo; do
+            curl -s \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY##*/}/$repo/collaborators" \
+            | jq -r '.[].login'
+          done | sort -u
+          echo "EOF" >> $GITHUB_ENV
+
+      - name: Generate collaborators section
+        run: |
+          printf '<table><tr>\n' > collabs.md
+          for user in $COLLABS; do
+            echo "<td align=\"center\"><a href=\"https://github.com/$user\"><img src=\"https://avatars.githubusercontent.com/$user\" width=\"60\" alt=\"$user\"/><br /><sub><b>$user</b></sub></a></td>" >> collabs.md
+          done
+          printf '</tr></table>\n' >> collabs.md
+
+      - name: Update README
+        run: |
+          awk '/<!-- collaborators-start -->/{print; system("cat collabs.md"); next} /<!-- collaborators-end -->/ {print; exit}1' README.md > README.new.md
+          mv README.new.md README.md
+
+      - uses: EndBug/add-and-commit@v9
+        with:
+          author_name: 'github-actions[bot]'
+          author_email: '41898282+github-actions[bot]@users.noreply.github.com'
+          message: 'chore: update collaborators list'
