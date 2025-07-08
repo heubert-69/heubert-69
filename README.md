@@ -1,5 +1,5 @@
 <h1 align="center">👋 Hello, I'm Jorge Creiann Jarme</h1>
-<p align="center">💼 Aspiring AI Researcher | Data Scientist | ML Engineer from the Philippines</p>
+<p align="center">💼 Aspiring AI Researcher | Data Scientist | ML Engineer</p>
 
 ---
 
