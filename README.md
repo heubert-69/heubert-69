@@ -6,17 +6,19 @@
 ### 🔥 GitHub Stats (Live)
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=jorgejarme&show_icons=true&theme=radical&count_private=true" alt="Jorge's GitHub stats" />
+  <img src="https://github-readme-stats.vercel.app/api?username=heubert-69&show_icons=true&theme=radical&count_private=true" alt="Jorge's GitHub stats" />
   <br />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jorgejarme&layout=compact&theme=radical" alt="Top Languages" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=heubert-69&layout=compact&theme=radical" alt="Top Languages" />
 </p>
 
 ---
 
 ### 📌 Featured Projects
 
-[![Option Valuation App](https://github-readme-stats.vercel.app/api/pin/?username=jorgejarme&repo=option-valuation&theme=radical)](https://github.com/jorgejarme/option-valuation)
-[![PH Disaster ML](https://github-readme-stats.vercel.app/api/pin/?username=jorgejarme&repo=ph-disaster-ml&theme=radical)](https://github.com/jorgejarme/ph-disaster-ml)
+[![Option Valuation App](https://github-readme-stats.vercel.app/api/pin/?username=heubert-69&repo=option-valuation&theme=radical)](https://github.com/heubert-69/option-valuation)
+[![PH Disaster ML](https://github-readme-stats.vercel.app/api/pin/?username=heubert-69&repo=ph-disaster-ml&theme=radical)](https://github.com/heubert-69/ph-disaster-ml)
+[![Finswarm](https://github-readme-stats.vercel.app/api/pin/?username=heubert-69&repo=finswarm&theme=radical)](https://github.com/heubert-69/finswarm)
+[![RegIntelAI](https://github-readme-stats.vercel.app/api/pin/?username=heubert-69&repo=regintelai&theme=radical)](https://github.com/heubert-69/regintelai)
 
 ---
 
@@ -24,8 +26,6 @@
 
 <!-- collaborators-start -->
 <!-- collaborators-end -->
-
----
 
 ---
 
@@ -41,10 +41,10 @@ Languages:
   - Julia
   - Scala
   - C#
+
 Frameworks & Tools:
   - TensorFlow / PyTorch
-  - Spark
-  - Hadoop
+  - Spark / Hadoop
   - Streamlit
   - PostgreSQL
   - FastAPI
@@ -53,9 +53,12 @@ Frameworks & Tools:
 ```
 
 📬 Connect with Me
+
 📧 jorgecreiannj@gmail.com
 
 💼 Jorge Creiann Jarme
 
 🧠 Always learning, building, and solving!
+
+
 ---
