@@ -43,6 +43,8 @@ Frameworks & Tools:
   - FastAPI
   - GitHub Actions
   - Docker
+  - Flask
+  - Gradio
 ```
 
 📬 Connect with Me
