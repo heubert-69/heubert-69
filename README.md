@@ -34,6 +34,7 @@ Languages:
   - Julia
   - Scala
   - C#
+  - Java
 
 Frameworks & Tools:
   - TensorFlow / PyTorch
