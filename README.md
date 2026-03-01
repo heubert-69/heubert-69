@@ -54,7 +54,7 @@ Frameworks & Tools:
 
 💼 Jorge Creiann Jarme
 
-🧠 Always learning, building, and solving!
+🧠 Consistently Building Systems That Scale!
 
 
 ---
