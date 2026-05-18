@@ -6,9 +6,9 @@
 ### 🔥 GitHub Stats 
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=heubert-69&show_icons=true&theme=radical&count_private=true" alt="Jorge's GitHub stats" />
+  <img src= "github-readme-stats-nu-one-80.vercel.app" alt="Jorge's GitHub stats" />
   <br />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=heubert-69&layout=compact&theme=radical" alt="Top Languages" />
+  <img src="github-readme-stats-nu-one-80.vercel.app" alt="Top Languages" />
 </p>
 
 
