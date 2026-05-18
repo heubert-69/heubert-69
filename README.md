@@ -5,11 +5,10 @@
 
 ### 🔥 GitHub Stats 
 <p align="center">
-  <img src="https://github-readme-stats-e0ofcgm90-jorges-projects-2cb5ace4.vercel.app/api?username=heubert-69&show_icons=true&theme=radical&count_private=true" />
+  <img src="https://github-readme-stats-d6kcv8eu3-jorges-projects-2cb5ace4.vercel.app/api?username=heubert-69&show_icons=true&theme=radical&count_private=true" />
   <br />
-  <img src="https://github-readme-stats-e0ofcgm90-jorges-projects-2cb5ace4.vercel.app/api/top-langs/?username=heubert-69&layout=compact&theme=radical" />
+  <img src="https://github-readme-stats-d6kcv8eu3-jorges-projects-2cb5ace4.vercel.app/api/top-langs/?username=heubert-69&layout=compact&theme=radical" />
 </p>
-
 ### 📌 Featured Projects
 
 [![Fertilizer Classifier](https://github-readme-stats.vercel.app/api/pin/?username=heubert-69&repo=FertilizerClassifier&theme=radical)](https://github.com/heubert-69/FertilizerClassifier)
