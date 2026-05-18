@@ -5,9 +5,9 @@
 
 ### 🔥 GitHub Stats 
 <p align="center">
-  <img src="https://github-readme-stats-nu-one-80.vercel.app/api?username=heubert-69&show_icons=true&theme=radical&count_private=true" alt="Jorge's GitHub stats" />
+  <img src="https://github-readme-stats-mqrgnvvqh-jorges-projects-2cb5ace4.vercel.app/api?username=heubert-69&show_icons=true&theme=radical&count_private=true" />
   <br />
-  <img src="https://github-readme-stats-nu-one-80.vercel.app/api/top-langs/?username=heubert-69&layout=compact&theme=radical" alt="Top Languages" />
+  <img src="https://github-readme-stats-mqrgnvvqh-jorges-projects-2cb5ace4.vercel.app/api/top-langs/?username=heubert-69&layout=compact&theme=radical" />
 </p>
 
 ### 📌 Featured Projects
