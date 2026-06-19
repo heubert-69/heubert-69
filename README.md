@@ -6,13 +6,12 @@
 
 <p align="center">
   <img
-    src="https://github-readme-stats-6n2z23hi8-jorges-projects-2cb5ace4.vercel.app/api?username=heubert-69&show_icons=true&theme=radical&count_private=true&v=2"
-    alt="GitHub Stats"
+    src="https://github-readme-stats.vercel.app/api?username=heubert-69&show_icons=true&theme=radical&count_private=true"
+    height="180"
   />
-  <br />
   <img
-    src="https://github-readme-stats-6n2z23hi8-jorges-projects-2cb5ace4.vercel.app/api/top-langs/?username=heubert-69&layout=compact&theme=radical&v=2"
-    alt="Top Languages"
+    src="https://github-readme-stats.vercel.app/api/top-langs/?username=heubert-69&layout=compact&theme=radical"
+    height="180"
   />
 </p>
 
